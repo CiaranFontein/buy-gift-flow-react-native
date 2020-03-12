@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import { Linking } from "expo";
 import styles from "../styles";
+import PropTypes from "prop-types";
 
 export default Merchant = ({ merchant, onPress, selected }) => {
   const {
@@ -53,4 +54,26 @@ export default Merchant = ({ merchant, onPress, selected }) => {
       </View>
     </TouchableOpacity>
   );
+};
+
+Merchant.propTypes = {
+  merchant: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    shoppingOption: PropTypes.string,
+    minAmount: PropTypes.number,
+    maxAmount: PropTypes.number,
+    website: PropTypes.string,
+    image: PropTypes.string
+  }),
+  selected: PropTypes.shape({
+    id: PropTypes.number,
+    name: PropTypes.string,
+    shoppingOption: PropTypes.string,
+    minAmount: PropTypes.number,
+    maxAmount: PropTypes.number,
+    website: PropTypes.string,
+    image: PropTypes.string
+  }),
+  onPress: PropTypes.func
 };
