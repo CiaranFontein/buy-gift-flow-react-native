@@ -8,8 +8,6 @@ import styles from "../styles";
 
 const merchantsURL = "http://165.227.43.115:8080/merchant/merchant";
 
-let searching = false;
-
 export default Merchants = ({ navigation }) => {
   const [searchText, setSearchText] = useState("");
   const [merchants, setMerchants] = useState([]);

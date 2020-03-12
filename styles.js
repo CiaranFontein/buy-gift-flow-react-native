@@ -113,5 +113,31 @@ export default styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderRadius: 6,
     borderWidth: 1
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#fff",
+    padding: 12,
+    borderRadius: 10,
+    borderColor: "#38c2ab",
+    borderWidth: 2,
+    marginVertical: 6
+  },
+  filledButton: {
+    alignItems: "center",
+    padding: 12,
+    borderRadius: 10,
+    borderWidth: 2,
+    backgroundColor: "#a0a0a0",
+    borderColor: "#a0a0a0",
+    marginVertical: 6
+  },
+  buttonText: {
+    color: "#38c2ab",
+    fontWeight: "700"
+  },
+  filledButtonText: {
+    color: "#ececec",
+    fontWeight: "700"
   }
 });
