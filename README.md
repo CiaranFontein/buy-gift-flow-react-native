@@ -1,8 +1,8 @@
 # Buy Gift Flow
 
-![Preview](__preview/buy-gift-flow-react-native.gif)
+![Preview](_preview/buy-gift-flow-react-native.gif)
 
-This is a small react native project that allows users to select a merchant from a fetched list of merchants. The user can also filter the fetched list using the search bar on the list page. If a user changes their mind they can remove their selection and select a different merchant.
+    This is a small react native project that allows users to select a merchant from a fetched list of merchants. The user can also filter the fetched list using the search bar on the list page. If a user changes their mind they can remove their selection and select a different merchant.
 
 
 ## Getting Started
@@ -25,5 +25,4 @@ These instructions will get you a copy of the project up and running on your loc
     npm start
     ```
     
-&nbsp;
 &nbsp;
