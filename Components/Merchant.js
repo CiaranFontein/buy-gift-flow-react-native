@@ -25,7 +25,7 @@ export default Merchant = ({ merchant, onPress, selected }) => {
     niceLookingShoppingOption = "Online";
   }
 
-  if (selected.id === id) {
+  if (selected && selected.id === id) {
     currentlySelected = true;
   }
 
