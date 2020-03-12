@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { SafeAreaView, View, Image, Text } from "react-native";
 import { Slider } from "react-native-elements";
-import { Button } from "../componentsLowerCase/Button";
+import { Button } from "../components/Button";
 
 import styles, { secondaryColor } from "../styles";
 
