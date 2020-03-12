@@ -31,38 +31,43 @@ export default Merchants = ({ navigation }) => {
   }, []);
 
   return (
-    <SafeAreaView>
-      <ScrollView>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
         <SearchBar
+          style={styles.searchBar}
           value=""
           placeholder="Search"
           onChangeText={searchText => setSearchText(searchText)}
           value={searchText}
+          containerStyle={styles.searchBarContainer}
+          inputContainerStyle={styles.searchInputContainer}
         />
-        <View>
-          {!loading ? (
-            merchants.map(merchant => (
-              <Merchant
-                key={merchant.id}
-                merchant={merchant}
-                onPress={() => {
-                  return setSelected(merchant);
-                }}
-              />
-            ))
-          ) : (
-            <Text>Loading...</Text>
-          )}
-        </View>
-        <Button
-          text="Cancel"
-          onPress={() =>
-            navigation.navigate("Home", {
-              merchant: null
-            })
-          }
+        <ScrollView style={styles.merchantList}>
+          <View>
+            {!loading ? (
+              merchants.map(merchant => (
+                <Merchant
+                  key={merchant.id}
+                  selected={selected}
+                  merchant={merchant}
+                  onPress={() => {
+                    return setSelected(merchant);
+                  }}
+                />
+              ))
+            ) : (
+              <Text>Loading...</Text>
+            )}
+          </View>
+        </ScrollView>
+        <LinearGradient
+          style={styles.fadeOutScrollView}
+          colors={["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 1)"]}
+          pointerEvents={"none"}
         />
+        <Button text="Cancel" onPress={() => navigation.navigate("Home")} />
         <Button
+          buttonType="filled"
           text="Select"
           onPress={() =>
             navigation.navigate("Home", {
@@ -70,12 +75,7 @@ export default Merchants = ({ navigation }) => {
             })
           }
         />
-      </ScrollView>
-      <LinearGradient
-        style={styles.fadeOutScrollView}
-        colors={["rgba(255, 255, 255, 0.1)", "rgba(255, 255, 255, 0.8)"]}
-        pointerEvents={"none"}
-      />
+      </View>
     </SafeAreaView>
   );
 };

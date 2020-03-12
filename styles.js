@@ -12,7 +12,7 @@ export default styles = StyleSheet.create({
     justifyContent: "flex-start"
   },
   content: {
-    width: "83%"
+    width: "86%"
   },
   section: {
     justifyContent: "space-between",
@@ -68,6 +68,13 @@ export default styles = StyleSheet.create({
     height: 90,
     marginTop: 12
   },
+  selectedMerchantCardLayout: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    height: 90,
+    marginTop: 12,
+    backgroundColor: "#fff"
+  },
   merchantTextContainer: {
     justifyContent: "space-between",
     height: "100%",
@@ -85,12 +92,26 @@ export default styles = StyleSheet.create({
   },
   fadeOutScrollView: {
     position: "absolute",
-    bottom: 0,
+    bottom: 116,
     width: "100%",
-    height: 200
+    height: 100
   },
   selectedMerchantContainer: {
     justifyContent: "center",
     alignItems: "center"
+  },
+  merchantList: {
+    height: "75%"
+  },
+  searchBarContainer: {
+    backgroundColor: backgroundColor,
+    borderBottomColor: "transparent",
+    borderTopColor: "transparent"
+  },
+  searchInputContainer: {
+    backgroundColor: backgroundColor,
+    borderBottomWidth: 1,
+    borderRadius: 6,
+    borderWidth: 1
   }
 });

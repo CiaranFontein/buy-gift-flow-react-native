@@ -7,7 +7,9 @@ import styles, { secondaryColor } from "../styles";
 
 export default Home = ({ navigation, route }) => {
   const [sliderValue, setSliderValue] = useState(25);
-  console.log(route.params);
+  const [selected, setSelected] = useState(null);
+  if (!selected && route.params && route.params.merchant)
+    setSelected(route.params.merchant);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -19,22 +21,35 @@ export default Home = ({ navigation, route }) => {
         </View>
         <View style={styles.section}>
           <Text style={styles.h2}>Select Merchant</Text>
-          <View style={styles.selectedMerchantContainer}>
-            {route.params.merchant ? (
-              <Image
-                style={styles.squareImage}
-                source={{ uri: route.params.merchant.image }}
+          {selected ? (
+            <>
+              <View style={styles.selectedMerchantContainer}>
+                <Image
+                  style={styles.squareImage}
+                  source={{ uri: selected.image }}
+                />
+              </View>
+              <Button
+                text="Remove"
+                onPress={() => {
+                  setSelected(null);
+                  navigation.setParams({ merchant: null });
+                }}
               />
-            ) : (
-              <Text style={styles.p}>
-                Recipient will choose any partner merchant
-              </Text>
-            )}
-          </View>
-          <Button
-            text="Select"
-            onPress={() => navigation.navigate("Merchants")}
-          />
+            </>
+          ) : (
+            <>
+              <View style={styles.selectedMerchantContainer}>
+                <Text style={styles.p}>
+                  Recipient will choose any partner merchant
+                </Text>
+              </View>
+              <Button
+                text="Select"
+                onPress={() => navigation.navigate("Merchants")}
+              />
+            </>
+          )}
         </View>
         <View style={styles.section}>
           <View style={styles.doubleHeadersection}>
@@ -45,6 +60,7 @@ export default Home = ({ navigation, route }) => {
             </View>
           </View>
           <Slider
+            animateTransitions={true}
             step={5}
             value={25}
             maximumValue={200}
