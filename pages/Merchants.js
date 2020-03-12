@@ -33,9 +33,9 @@ export default Merchants = ({ navigation }) => {
     fetchData();
   }, []);
 
-  const searchFunction = value => {
-    setSearchText(value);
-    value === "" ? (searching = false) : (searching = true);
+  const searchFunction = searchText => {
+    setSearchText(searchText);
+    searchText === "" ? (searching = false) : (searching = true);
     searching
       ? setSearchResults(
           merchants.filter(merchant =>
@@ -52,8 +52,9 @@ export default Merchants = ({ navigation }) => {
           style={styles.searchBar}
           value={searchText}
           placeholder="Search"
-          onChangeText={searchText => searchFunction(searchText)}
-          value={searchText}
+          onChangeText={searchText => {
+            searchFunction(searchText);
+          }}
           containerStyle={styles.searchBarContainer}
           inputContainerStyle={styles.searchInputContainer}
         />
@@ -63,7 +64,7 @@ export default Merchants = ({ navigation }) => {
         ) : (
           <FlatList
             style={styles.merchantList}
-            data={searchResults}
+            data={searchText === "" ? merchants : searchResults}
             renderItem={({ item }) => (
               <Merchant
                 selected={selected}
