@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Text, FlatList } from "react-native";
 import { SearchBar } from "react-native-elements";
-import { Button } from "../Components/Button";
-import Merchant from "../Components/Merchant";
+import { Button } from "../componentsLowerCase/Button";
+import Merchant from "../componentsLowerCase/Merchant";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "../styles";
 
